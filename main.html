@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h1>My Website</h1>
+    <p>In this site you can switch the state of two leds</p>
+
+    <form id="leds" action="/" method="get" onChange='submit();'>
+{%- for led_color in pins_state %}
+    <p>
+      <input type='checkbox' id="{{led_color}}" name="{{led_color}}" value="on" {{ 'checked' if pins_state[led_color]==1 }}>
+      <label for="{{led_color}}">{{led_color|upper}}</label>
+    </p>
+{%- endfor %}
+    </form>
+  </body>
+</html>
